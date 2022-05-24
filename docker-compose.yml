@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  weather_station:
+    container_name: weather-station
+    image: aws:1.0
+    ports:
+      - 8080:8080
+    environment:
+      - OPEN_WEATHER_MAP_APPID=7e96a04f909f62d2e09c041056f37aa9
+      - PORT=8090

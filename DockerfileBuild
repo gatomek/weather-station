@@ -6,7 +6,8 @@ WORKDIR /build/
 RUN mvn package
 
 FROM openjdk:8-jre-alpine
-RUN addgroup -S gatomek && adduser -S gatomek -G gatomek
+EXPOSE 8090
+RUN addgroup --system gatomek && adduser --system gatomek --ingroup gatomek
 USER gatomek:gatomek
 WORKDIR /app
 ARG JAR_FILE=AirportWeatherStation-1.0.jar

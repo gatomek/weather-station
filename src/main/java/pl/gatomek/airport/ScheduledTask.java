@@ -19,20 +19,22 @@ import java.util.Objects;
 public class ScheduledTask {
     Repository repository;
 
-    ScheduledTask(Repository repository) {
+    ScheduledTask(Repository repository, RestTemplate restTemplate) {
         this.repository = repository;
+        this.restTemplate = restTemplate;
     }
 
     final private Logger logger = LoggerFactory.getLogger(ScheduledTask.class);
+
     @Value("#{environment.OPEN_WEATHER_MAP_APPID}")
     private String openWeatherMapAppId;
-    final private int secondTmt = 5;
+
+    RestTemplate restTemplate;
 
     @Scheduled(fixedDelay = 15000)
     @Timed(value = "openWeatherQuery", description = "Open Weather Query")
     public void scheduleTaskWithFixedRate() {
         try {
-            RestTemplate restTemplate = getRestTemplate(Duration.ofSeconds(secondTmt));
             String url = "https://api.openweathermap.org/data/2.5/weather?id=3093133&appid=" + openWeatherMapAppId + "&mode=json&lang=pl&units=metrics";
             ResponseEntity<WeatherData> response = restTemplate.getForEntity(url, WeatherData.class);
 
@@ -55,8 +57,5 @@ public class ScheduledTask {
         }
     }
 
-    private RestTemplate getRestTemplate(Duration duration) {
-        RestTemplateBuilder builder = new RestTemplateBuilder();
-        return builder.setConnectTimeout(duration).setReadTimeout(duration).build();
-    }
+
 }

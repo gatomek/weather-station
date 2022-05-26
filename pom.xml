@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>pl.gatomek</groupId>
-	<artifactId>AirportWeatherStation</artifactId>
+	<artifactId>WeatherStation</artifactId>
 	<version>1.0</version>
-	<name>AirportWeaterStation</name>
-	<description>Airport Weather Station</description>
+	<name>WeaterStation</name>
+	<description>Weather Station</description>
 	<packaging>jar</packaging>
 	<properties>
 		<java.version>1.8</java.version>
@@ -104,7 +104,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>pl.gatomek.airport.WeatherStationApp</mainClass>
+							<mainClass>pl.gatomek.weatherstation.App</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

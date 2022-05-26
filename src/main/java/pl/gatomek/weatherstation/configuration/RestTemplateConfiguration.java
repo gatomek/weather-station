@@ -1,5 +1,6 @@
-package pl.gatomek.airport;
+package pl.gatomek.weatherstation.configuration;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,14 +12,13 @@ import java.time.Duration;
 public class RestTemplateConfiguration {
 
     @Bean
-    RestTemplate makeRestTemplate()
-    {
-        return buildRestTemplate(Duration.ofSeconds( 5));
+    RestTemplate makeRestTemplate(@Value("${connection.timeout}") int timeout) {
+        return buildRestTemplate(Duration.ofSeconds(timeout));
     }
 
-    private RestTemplate buildRestTemplate(Duration duration) {
+    private RestTemplate buildRestTemplate(Duration timeout) {
         RestTemplateBuilder builder = new RestTemplateBuilder();
-        return builder.setConnectTimeout(duration).setReadTimeout(duration).build();
+        return builder.setConnectTimeout(timeout).setReadTimeout(timeout).build();
     }
 
 }

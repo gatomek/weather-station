@@ -1,4 +1,4 @@
-package pl.gatomek.airport;
+package pl.gatomek.weatherstation;
 
 import lombok.Getter;
 import lombok.Setter;

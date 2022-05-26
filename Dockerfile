@@ -1,7 +1,8 @@
 FROM openjdk:8-jre-alpine
-RUN addgroup -S gatomek && adduser -S gatomek -G gatomek
+RUN addgroup --system gatomek && adduser --system gatomek --ingroup gatomek
 USER gatomek:gatomek
+WORKDIR /home/gatomek
 ARG JAR_FILE=target/AirportWeatherStation-1.0.jar
-COPY ${JAR_FILE} app.jar
+COPY ${JAR_FILE} ws.jar
 EXPOSE 8090
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/home/gatomek/ws.jar"]

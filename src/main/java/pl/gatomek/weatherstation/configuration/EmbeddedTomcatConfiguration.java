@@ -1,4 +1,4 @@
-package pl.gatomek.airport;
+package pl.gatomek.weatherstation.configuration;
 
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;

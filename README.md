@@ -1,4 +1,4 @@
-# Airport Weather Station
+# Weather Station
 
 ### Envinronment variables:
 1. OPEN_WEATHER_MAP_APPID

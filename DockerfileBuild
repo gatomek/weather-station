@@ -9,8 +9,7 @@ FROM openjdk:8-jre-alpine
 EXPOSE 8090
 RUN addgroup --system gatomek && adduser --system gatomek --ingroup gatomek
 USER gatomek:gatomek
-WORKDIR /app
+WORKDIR /home/gatomek
 ARG JAR_FILE=AirportWeatherStation-1.0.jar
-COPY --from=MAVEN_BUILD /build/target/${JAR_FILE} /app/app.jar
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+COPY --from=MAVEN_BUILD /build/target/${JAR_FILE} /home/gatomek/ws.jar
+ENTRYPOINT ["java", "-jar", "ws.jar"]

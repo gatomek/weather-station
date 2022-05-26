@@ -1,4 +1,4 @@
-package pl.gatomek.airport;
+package pl.gatomek.weatherstation.configuration;
 
 import io.micrometer.core.aop.TimedAspect;
 import io.micrometer.core.instrument.MeterRegistry;

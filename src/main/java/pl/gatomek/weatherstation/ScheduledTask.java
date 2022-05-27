@@ -49,6 +49,4 @@ public class ScheduledTask {
             logger.error(ex.getMessage());
         }
     }
-
-
 }

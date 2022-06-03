@@ -4,5 +4,5 @@ USER gatomek:gatomek
 WORKDIR /home/gatomek
 ARG JAR_FILE=target/WeatherStation-1.0.jar
 COPY ${JAR_FILE} ws.jar
-EXPOSE 8090
+EXPOSE 8080
 ENTRYPOINT ["java","-jar","/home/gatomek/ws.jar"]

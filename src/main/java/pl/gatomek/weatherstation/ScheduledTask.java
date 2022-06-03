@@ -18,6 +18,7 @@ public class ScheduledTask {
     final private Repository repository;
     final private RestTemplate restTemplate;
     final private Logger logger = LoggerFactory.getLogger(ScheduledTask.class);
+
     @Value("#{environment.OPEN_WEATHER_MAP_APPID}")
     private String openWeatherMapAppId;
     ScheduledTask(Repository repository, RestTemplate restTemplate) {
@@ -36,13 +37,13 @@ public class ScheduledTask {
             if (Objects.nonNull(weatherData)) {
                 Wind wind = weatherData.getWind();
                 if (Objects.nonNull(wind)) {
-                    String deg = wind.getDeg();
-                    String speed = wind.getSpeed();
-                    String gust = wind.getGust();
+                    Double degree = wind.getDeg();
+                    Double speed = wind.getSpeed();
+                    Double gust = wind.getGust();
 
-                    boolean changed = repository.update(deg, speed, gust);
+                    boolean changed = repository.update(degree, speed, gust);
                     if (changed)
-                        logger.info("deg: " + deg + " | speed: " + speed + " | gust: " + gust);
+                        logger.info("degree: " + degree + " | speed: " + speed + " | gust: " + gust);
                 }
             }
         } catch (Exception ex) {

@@ -12,14 +12,29 @@ public class WeatherData {
 }
 
 @Setter
-@Getter
 class Wind {
-    private String deg;
-    private String gust;
-    private String speed;
-    String getGust() {
+    private Double deg;
+    private Double gust;
+    private Double speed;
+
+    public Double getDeg() {
+        if(Objects.nonNull( deg))
+            return deg;
+
+        return -1.;
+    }
+
+    public Double getGust() {
         if(Objects.nonNull( gust))
             return gust;
-        return "0";
+
+        return 0.;
+    }
+
+    public Double getSpeed() {
+        if(Objects.nonNull( speed))
+            return speed;
+
+        return 0.;
     }
 }

@@ -56,3 +56,5 @@
 7. https://docs.spring.io/spring-metrics/docs/current/public/prometheus
 8. https://raymondhlee.wordpress.com/2016/10/03/monitoring-spring-boot-applications-with-prometheus-part-2/
 9. https://developpaper.com/prometheus-integration-spring-boot-2/
+10. https://www.baeldung.com/spring-boot-actuators
+
